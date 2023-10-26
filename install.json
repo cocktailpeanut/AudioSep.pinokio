@@ -2,10 +2,7 @@
   "run": [{
     "method": "shell.run",
     "params": {
-      "message": [
-        "git lfs install",
-        "git clone https://huggingface.co/spaces/cocktailpeanut/AudioSep"
-      ]
+      "message": [ "git lfs install", "git clone https://huggingface.co/spaces/cocktailpeanut/AudioSep" ]
     }
   }, {
     "method": "shell.run",
