@@ -5,8 +5,8 @@ module.exports = {
   menu: async (kernel) => {
     let installed = await kernel.exists(__dirname, "AudioSep", "venv")
     if (installed) {
-      let session = await kernel.require(__dirname, "AudioSep", "session.json")
-      let running = await kernel.running(__dirname, "AudioSep", "start.json")
+      let session = await kernel.require(__dirname, "session.json")
+      let running = await kernel.running(__dirname, "start.json")
       if (running) {
         return [{
           icon: "fa-solid fa-spin fa-circle-notch",
