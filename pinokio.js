@@ -9,7 +9,7 @@ module.exports = {
     let running = {
       install: info.running("install.json"),
       start: info.running("start.json"),
-      update: info.running("update.js")
+      update: info.running("update.json")
     }
     if (running.install) {
       return [{
@@ -45,7 +45,7 @@ module.exports = {
           default: true,
           icon: 'fa-solid fa-terminal',
           text: "Updating",
-          href: "update.js",
+          href: "update.json",
         }]
       } else {
         return [{
@@ -56,7 +56,7 @@ module.exports = {
         }, {
           icon: "fa-solid fa-plug",
           text: "Update",
-          href: "update.js",
+          href: "update.json",
         }, {
           icon: "fa-solid fa-plug",
           text: "Install",
