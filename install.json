@@ -1,25 +1,29 @@
 {
-  "requires": [{ "type": "conda", "name": "ffmpeg", "args": "-c conda-forge" }],
   "run": [{
     "method": "shell.run",
     "params": {
-      "message": [ "git lfs install", "git clone https://huggingface.co/spaces/cocktailpeanut/AudioSep" ]
+      "message": [ "git lfs install", "git clone https://huggingface.co/spaces/cocktailpeanut/AudioSep app" ]
+    }
+  },  {
+    "method": "script.start",
+    "params": {
+      "uri": "torch.js",
+      "params": {
+        "venv": "env",
+        "path": "app"
+      }
     }
   }, {
     "method": "shell.run",
     "params": {
-      "path": "AudioSep",
-      "venv": "venv",
+      "path": "app",
+      "venv": "env",
       "message": [
-        "{{pip.install.torch}}",
         "pip install -r requirements.txt"
       ]
     }
   }, {
-    "method": "input",
-    "params": { "title": "Install Success", "description": "Go back to the dashboard and launch the app!" }
-  }, {
-    "method": "browser.open",
-    "params": { "uri": "/?selected=AudioSep" }
+    "method": "notify",
+    "params": { "html": "Click the 'start' tab to get started!" }
   }]
 }
