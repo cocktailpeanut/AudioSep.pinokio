@@ -1,13 +1,15 @@
 const path = require('path')
 module.exports = {
   version: "2.0",
+  title: "AudioSep",
   icon: "icon.jpeg",
   description: "Separate Anything You Describe (https://huggingface.co/spaces/Audio-AGI/AudioSep)",
   menu: async (kernel,info) => {
     let installed = info.exists("app/env")
     let running = {
       install: info.running("install.json"),
-      start: info.running("start.json")
+      start: info.running("start.json"),
+      update: info.running("update.js")
     }
     if (running.install) {
       return [{
@@ -38,12 +40,23 @@ module.exports = {
             href: "start.json",
           }]
         }
+      } else if (running.update) {
+        return [{
+          default: true,
+          icon: 'fa-solid fa-terminal',
+          text: "Updating",
+          href: "update.js",
+        }]
       } else {
         return [{
           default: true,
           icon: "fa-solid fa-power-off",
           text: "Start",
           href: "start.json",
+        }, {
+          icon: "fa-solid fa-plug",
+          text: "Update",
+          href: "update.js",
         }, {
           icon: "fa-solid fa-plug",
           text: "Install",
