@@ -3,8 +3,8 @@
   "run": [{
     "method": "shell.run",
     "params": {
-      "path": "AudioSep",
-      "venv": "venv",
+      "path": "app",
+      "venv": "env",
       "message": "python app.py",
       "on": [{
         "event": "/http://[0-9.:]+/",
@@ -12,17 +12,9 @@
       }]
     }
   }, {
-    "method": "self.set",
+    "method": "local.set",
     "params": {
-      "session.json": {
         "url": "{{input.event[0]}}"
-      }
-    }
-  }, {
-    "method": "browser.open",
-    "params": {
-      "uri": "{{self.session.url}}",
-      "target": "_blank"
     }
   }]
 }
